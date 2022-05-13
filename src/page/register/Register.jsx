@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import Lottie from 'react-lottie'
+import AnimationLoding from '../../components/fragment/loadingAnimation/loadingAnimation.json'
 import imageBackground from '../../assets/image-register.png'
 import iconEye from '../../assets/icon-eye.svg'
 
@@ -11,10 +13,17 @@ function Login() {
     const [password, setPassword] = useState('')
     const [telp, setTelp] = useState('')
     const [passwordShown, setPasswordShown] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const togglePasswordVisiblity = () => {
       setPasswordShown(passwordShown ? false : true);
     };
+
+    const OptionLottie = {
+      loop: true,
+      autoplay: true,
+      animationData: AnimationLoding,
+    }
 
     const Register = async (e) => {
       e.preventDefault();
@@ -25,12 +34,18 @@ function Login() {
           password: password,
           telp: telp
       });
+      
+      setLoading(true);
 
-      setUsername("");
-      setName("");
-      setEmail("");
-      setPassword("");
-      setTelp("");
+      setTimeout(() => {
+        window.location.href = '/login';
+        setUsername("");
+        setName("");
+        setEmail("");
+        setPassword("");
+        setTelp("");
+        setLoading(false);
+      }, 1000);
     };
 
   return (
@@ -98,6 +113,15 @@ function Login() {
             </div>
           </form>
         </div>
+          {loading ? (
+            <div className='flex absolute col-span-2 bg-gray-100/75 h-full w-full'>
+              <Lottie
+              options={OptionLottie}
+              height={400}
+              width={400}
+              />
+            </div>
+          ) : null}
       </div>
     </>
   )

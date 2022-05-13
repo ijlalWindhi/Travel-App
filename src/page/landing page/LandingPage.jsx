@@ -1,9 +1,10 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 // Import component
 import Navbar from '../../components/fragment/navbar/Navbar'
 import CardAbout from '../../components/fragment/cardAbout/Card'
-import CardTransportation from '../../components/fragment/cardTransportation/Card'
+import CardTransportation from '../../components/fragment/cardTransportationLandingPage/Card'
 import Footer from "../../components/fragment/Footer/Footer";
 
 // Import image
@@ -27,7 +28,7 @@ function LandingPage() {
                 <p className='text-2xl font-normal'>
                 Thinking of taking break from every day's busy life? Planning to go out of the country with your loved ones to have some fun and quality time in a cost effective way?
                 </p>
-                <a href="#about"><button className='bg-primary-purple text-white px-7 py-2.5 mt-8 rounded-lg font-semibold'>Start Now</button></a>
+                <Link to="/transportation"><button className='bg-primary-purple text-white px-7 py-2.5 mt-8 rounded-lg font-semibold'>Start Now</button></Link>
               </div>
           </div>
       </section>
@@ -53,6 +54,9 @@ function LandingPage() {
             </div>
             <div className=''>
               <CardTransportation/>
+            </div>
+            <div className='m-auto'>
+             <Link to="/transportation"><button className='bg-primary-purple text-white text-2xl font-medium py-3 px-6 rounded-lg'>Let's Start Our Journy</button></Link>
             </div>
           </div>
       </section>

@@ -6,15 +6,15 @@ function Navbar() {
     const sidebarContent = [
       {
         label: 'Home',
-        target: '/blog',
+        target: '/',
       },
       {
-        label: 'Ticket',
-        target: '/kontak',
+        label: 'Transportation',
+        target: '/transportation',
       },
       {
         label: 'Cart',
-        target: '/tentang',
+        target: '/cart',
       },
     ];
 

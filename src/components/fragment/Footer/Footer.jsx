@@ -1,9 +1,10 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function Footer() {
   return (
     <>
-        <div className='bg-primary-purple'>
+        <div className='bg-primary-purple bottom-0'>
             <div className='flex flex-row justify-around pt-8'>
                 <div className='text-4xl font-semibold'>
                     <h3>Skuy<span className='text-white'>Travel</span>.</h3>
@@ -19,9 +20,9 @@ function Footer() {
                 <div className='text-white'>
                     <h3 className='text-2xl font-semibold'>Short Link</h3>
                     <ul className='text-xl font-medium mt-5'>
-                        <li>Home</li>
-                        <li className='py-2'>Ticket</li>
-                        <li>Cart</li>
+                       <Link to="/"><li>Home</li></Link>
+                       <Link to="/transportation"><li className='py-2'>Transportation</li></Link>
+                       <Link to=""><li>Cart</li></Link>
                     </ul>
                 </div>
                 <div className='text-white'>
