@@ -6,7 +6,7 @@ import AnimationLoding from '../../components/fragment/loadingAnimation/loadingA
 import image from '../../assets/image-login.png'
 import iconEye from '../../assets/icon-eye.svg'
 
-function Login() {
+function LoginPetugas() {
     const [nama, setNama] = useState('')
     const [password, setPassword] = useState('')
     const [passwordShown, setPasswordShown] = useState(false);
@@ -29,15 +29,14 @@ function Login() {
         password: password
       }
       await axios
-      .post("http://localhost:8080/penumpang/api/v1/login", sendData)
+      .post("http://localhost:8080/petugas/api/v1/login", sendData)
       .then(res => {
         if(res.data.status === "success"){
           setLoading(true);
           localStorage.setItem('nama', nama);
-          localStorage.setItem('token', res.data.token);
 
           setTimeout(() => {
-            window.location.href = '/';
+            window.location.href = '/dashboard';
             setPassword("");
             setNama("");
             setLoading(false);
@@ -57,7 +56,7 @@ function Login() {
           <img src={image} alt="background image" className='w-full max-h-screen'></img>
         </div>
         <div className='flex flex-col justify-center items-center'>
-          <h1 className='text-primary-purple text-6xl font-bold mb-14'>Login</h1>
+          <h1 className='text-primary-purple text-6xl font-bold mb-14'>Login Admin</h1>
           <form method='POST' onSubmit={Login}>
             <label className='text-2xl'>Nama</label>
             <input
@@ -80,9 +79,6 @@ function Login() {
               />
               <img onClick={togglePasswordVisiblity} src={iconEye} alt='icon-eye' className='cursor-pointer absolute w-7 ml-80 mt-4' />
             </div>
-            <div className='text-primary-purple mt-8'>
-              <p>Don’t Have Account? <Link to={"/register"}>Register</Link></p>
-            </div>
             <div className='mt-12 text-center'>
                 <button type='submit' className='bg-primary-purple text-white font-medium text-3xl py-2 w-96 rounded-lg'>Login</button>
             </div>
@@ -102,4 +98,4 @@ function Login() {
   )
 }
 
-export default Login
+export default LoginPetugas
